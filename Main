@@ -1,0 +1,86 @@
+int maxOfThree(int a, int b, int c) {
+  int max = a;
+  if (b > max) {
+    max = b;
+  }
+  if (c > max) {
+    max = c;
+  }
+  return max;
+}
+
+int sumList(List<int> list) {
+  int sum = 0;
+  for (int x in list) {
+    sum += x;
+  }
+  return sum;
+}
+
+int multiplyList(List<int> list) {
+  int result = 1;
+  for (int x in list) {
+    result *= x;
+  }
+  return result;
+}
+
+List<int> removeDuplicates(List<int> list) {
+  return list.toSet().toList();
+}
+
+int factorial(int n) {
+  int result = 1;
+  for (int i = 1; i <= n; i++) {
+    result *= i;
+  }
+  return result;
+}
+
+bool containsElement(dynamic collection, int value) {
+  return collection.contains(value);
+}
+
+void printOddIndex(List list) {
+  for (int i = 0; i < list.length; i++) {
+    if (i % 2 != 0) {
+      print(list[i]);
+    }
+  }
+}
+
+List reverseList(List list) {
+  return list.reversed.toList();
+}
+
+double averageList(List<int> list) {
+  int sum = sumList(list);
+  return sum / list.length;
+}
+
+int countOccurrences(List<int> list, int value) {
+  int count = 0;
+  for (int x in list) {
+    if (x == value) {
+      count++;
+    }
+  }
+  return count;
+}
+void main() {
+  List<int> numbers = [1, 2, 3, 2, 4, 5, 3];
+
+  print("Максимум из 3,7,5: ${maxOfThree(3, 7, 5)}");
+  print("Сумма: ${sumList(numbers)}");
+  print("Произведение: ${multiplyList(numbers)}");
+  print("Без повторов: ${removeDuplicates(numbers)}");
+  print("Факториал 5: ${factorial(5)}");
+  print("Есть ли 3: ${containsElement(numbers, 3)}");
+
+  print("Элементы с нечетным индексом:");
+  printOddIndex(numbers);
+
+  print("Обратный список: ${reverseList(numbers)}");
+  print("Среднее: ${averageList(numbers)}");
+  print("Количество двоек: ${countOccurrences(numbers, 2)}");
+}
